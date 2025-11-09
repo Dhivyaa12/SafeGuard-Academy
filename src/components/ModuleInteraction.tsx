@@ -24,7 +24,6 @@ type Quiz = {
 
 type Lesson = {
     title: string;
-    duration: string;
     content: string;
 };
 
@@ -87,7 +86,6 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle }: Props) {
                                 <AccordionTrigger>
                                     <div className="flex justify-between items-center w-full pr-4">
                                         <span>{lesson.title}</span>
-                                        <span className="text-sm text-muted-foreground">{lesson.duration}</span>
                                     </div>
                                 </AccordionTrigger>
                                 <AccordionContent>

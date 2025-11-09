@@ -9,6 +9,12 @@ import { Separator } from './ui/separator';
 import { Award, CheckCircle, Download, XCircle } from 'lucide-react';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 type Quiz = {
     question: string;
@@ -16,8 +22,14 @@ type Quiz = {
     answer: string;
 };
 
+type Lesson = {
+    title: string;
+    duration: string;
+    content: string;
+};
+
 type Props = {
-    lessons: { title: string; duration: string }[];
+    lessons: Lesson[];
     quiz: Quiz[];
     moduleTitle: string;
 };
@@ -69,14 +81,23 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle }: Props) {
                     <CardDescription>Review these lessons before taking the quiz.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <ul className="space-y-3">
-                        {lessons.map(lesson => (
-                            <li key={lesson.title} className="flex justify-between items-center p-3 bg-secondary rounded-md">
-                                <span>{lesson.title}</span>
-                                <span className="text-sm text-muted-foreground">{lesson.duration}</span>
-                            </li>
+                    <Accordion type="single" collapsible className="w-full">
+                        {lessons.map((lesson, index) => (
+                            <AccordionItem value={`item-${index}`} key={lesson.title}>
+                                <AccordionTrigger>
+                                    <div className="flex justify-between items-center w-full pr-4">
+                                        <span>{lesson.title}</span>
+                                        <span className="text-sm text-muted-foreground">{lesson.duration}</span>
+                                    </div>
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                    <div className="px-4 pb-4 text-muted-foreground">
+                                        {lesson.content}
+                                    </div>
+                                </AccordionContent>
+                            </AccordionItem>
                         ))}
-                    </ul>
+                    </Accordion>
                 </CardContent>
             </Card>
 

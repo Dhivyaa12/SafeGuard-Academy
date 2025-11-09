@@ -8,6 +8,7 @@ export const modules = [
     title: 'Kitchen Fire Safety',
     description: 'Essential protocols for preventing and managing fires in a hotel kitchen environment.',
     icon: Flame,
+    youtubeVideoId: 't3tF6-G-d5I',
     lessons: [
       { title: 'Understanding Grease Fires', duration: '5 min' },
       { title: 'Kitchen Fire Suppression Systems', duration: '8 min' },

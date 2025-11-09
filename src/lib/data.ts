@@ -94,11 +94,56 @@ export const modules = [
       { title: 'Emergency Power-off Procedures', content: 'If it\'s safe to do so, the first step in fighting an electrical fire is to de-energize the equipment by unplugging it or shutting off the power at the circuit breaker. This removes the electrical current as a source of ignition and may extinguish the fire on its own. It also makes it safer to use other types of extinguishers if necessary.' },
     ],
     quiz: [
-        {
-          question: 'Which class of fire extinguisher is suitable for electrical fires?',
-          options: ['Class A', 'Class B', 'Class C', 'Class D'],
-          answer: 'Class C',
-        },
+      {
+        question: 'Which class of fire extinguisher is suitable for electrical fires?',
+        options: ['Class A', 'Class B', 'Class C', 'Class D'],
+        answer: 'Class C',
+      },
+      {
+        question: 'What is the very first step you should take when you encounter an electrical fire, if it is safe to do so?',
+        options: ['Throw water on it', 'De-energize the equipment', 'Find a Class A extinguisher', 'Cover it with a blanket'],
+        answer: 'De-energize the equipment',
+      },
+      {
+        question: 'Why should you not use a water-based extinguisher (Class A) on an electrical fire?',
+        options: ['It will make the fire bigger', 'It can create a shock hazard', 'It is not effective', 'It will damage the equipment'],
+        answer: 'It can create a shock hazard',
+      },
+      {
+        question: 'What does a "frayed" electrical cord mean?',
+        options: ['The cord is brand new', 'The cord\'s insulation is worn or broken', 'The cord is very long', 'The cord is the wrong color'],
+        answer: 'The cord\'s insulation is worn or broken',
+      },
+      {
+        question: 'Which of the following is a sign of an overloaded outlet?',
+        options: ['A burning smell', 'The outlet is cool to the touch', 'Only one device is plugged in', 'The lights are very bright'],
+        answer: 'A burning smell',
+      },
+      {
+        question: 'What is the purpose of a circuit breaker?',
+        options: ['To start a fire', 'To automatically shut off power in case of an overload', 'To make electricity flow faster', 'To change the voltage'],
+        answer: 'To automatically shut off power in case of an overload',
+      },
+      {
+        question: 'Carbon Dioxide (CO2) extinguishers are effective on which types of fires?',
+        options: ['Class A and B', 'Class B and C', 'Class A and C', 'Class D'],
+        answer: 'Class B and C',
+      },
+      {
+        question: 'What is a "daisy chain" of extension cords?',
+        options: ['A decorative chain of lights', 'Plugging multiple extension cords into each other', 'A special type of fire-safe cord', 'A way to organize cords'],
+        answer: 'Plugging multiple extension cords into each other',
+      },
+      {
+        question: 'After de-energizing the equipment, an electrical fire is now considered what class of fire?',
+        options: ['It remains a Class C fire', 'It becomes a Class A or B fire', 'It becomes a Class D fire', 'The fire is always out'],
+        answer: 'It becomes a Class A or B fire',
+      },
+      {
+        question: 'Where should combustible materials NOT be placed?',
+        options: ['In a storage closet', 'Near heat-generating appliances', 'In a metal cabinet', 'Outside the building'],
+        answer: 'Near heat-generating appliances',
+      },
     ],
   },
   {

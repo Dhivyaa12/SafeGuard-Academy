@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
@@ -22,6 +22,8 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from './ui/dialog';
+import { Alert, AlertTitle, AlertDescription } from './ui/alert';
 
 type Quiz = {
     question: string;
@@ -52,6 +54,49 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }:
     const [quizResult, setQuizResult] = useState<'passed' | 'failed' | null>(null);
     const [score, setScore] = useState({ correct: 0, incorrect: 0 });
     const { toast } = useToast();
+
+    const [isARMode, setIsARMode] = useState(false);
+    const [hasCameraPermission, setHasCameraPermission] = useState<boolean | null>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const streamRef = useRef<MediaStream | null>(null);
+
+
+    const startARSimulation = async () => {
+        setIsARMode(true);
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+                setHasCameraPermission(true);
+                streamRef.current = stream;
+                if (videoRef.current) {
+                    videoRef.current.srcObject = stream;
+                }
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+                setHasCameraPermission(false);
+                toast({
+                    variant: 'destructive',
+                    title: 'Camera Access Denied',
+                    description: 'Please enable camera permissions in your browser settings to use this feature.',
+                });
+            }
+        } else {
+            setHasCameraPermission(false);
+             toast({
+                variant: 'destructive',
+                title: 'AR Not Supported',
+                description: 'Your browser does not support the necessary features for AR.',
+            });
+        }
+    };
+
+    const stopARSimulation = () => {
+        if (streamRef.current) {
+            streamRef.current.getTracks().forEach(track => track.stop());
+        }
+        setIsARMode(false);
+        setHasCameraPermission(null);
+    };
 
     const handleAnswerChange = (questionIndex: number, value: string) => {
         setAnswers(prev => ({...prev, [questionIndex]: value}));
@@ -121,6 +166,7 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }:
     };
 
     return (
+        <>
         <Tabs defaultValue="lessons" className="w-full">
             <TabsList className="grid w-full grid-cols-3 bg-card p-1 h-auto">
                 <TabsTrigger value="lessons" className="py-2 text-base"><BookOpen className="mr-2" />Lessons</TabsTrigger>
@@ -166,7 +212,7 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }:
                         <div className="relative aspect-video rounded-lg overflow-hidden border-4 border-primary/20 shadow-lg">
                             <Image src="https://picsum.photos/seed/arsim/800/450" alt="AR Simulation" layout="fill" objectFit="cover" data-ai-hint="fire safety simulation" />
                             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                                <Button size="lg" className="text-lg">Start AR Simulation</Button>
+                                <Button size="lg" className="text-lg" onClick={startARSimulation}>Start AR Simulation</Button>
                             </div>
                         </div>
                     </CardContent>
@@ -272,5 +318,35 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }:
                 </Card>
             </TabsContent>
         </Tabs>
+
+        <Dialog open={isARMode} onOpenChange={setIsARMode}>
+            <DialogContent className="max-w-3xl h-[80vh] flex flex-col p-0">
+                <DialogHeader className="p-4 border-b">
+                    <DialogTitle>AR Fire Simulation</DialogTitle>
+                </DialogHeader>
+                <div className="flex-1 relative bg-black">
+                    <video ref={videoRef} className="w-full h-full object-cover" autoPlay playsInline muted />
+                    {hasCameraPermission === false && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/70">
+                            <Alert variant="destructive" className="max-w-sm">
+                                <AlertTitle>Camera Access Denied</AlertTitle>
+                                <AlertDescription>
+                                    Please enable camera permissions in your browser settings to use the AR simulation. You may need to refresh the page after granting permission.
+                                </AlertDescription>
+                            </Alert>
+                        </div>
+                    )}
+                    {hasCameraPermission === null && (
+                         <div className="absolute inset-0 flex items-center justify-center bg-black/70">
+                            <p className="text-white">Requesting camera access...</p>
+                         </div>
+                    )}
+                     <div className="absolute top-4 right-4 z-10">
+                         <Button variant="destructive" onClick={stopARSimulation}>Exit AR</Button>
+                     </div>
+                </div>
+            </DialogContent>
+        </Dialog>
+     </>
     );
 }

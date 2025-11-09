@@ -329,7 +329,8 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }:
 
                     {hasCameraPermission && (
                          <video
-                            src="/fire.mp4"
+                            // Use URL-encoded filename so spaces/commas are served correctly from /public
+                            src={encodeURI('/videos/Hailuo_Video_A 60-second video, first-perso_443780512455847936.mp4')}
                             className="absolute bottom-0 right-0 w-1/2"
                             autoPlay
                             loop

@@ -8,7 +8,13 @@ export const modules = [
     title: 'Kitchen Fire Safety',
     description: 'Essential protocols for preventing and managing fires in a hotel kitchen environment.',
     icon: Flame,
-    youtubeVideoId: 't3tF6-G-d5I',
+    youtubeVideos: [
+        { title: 'VR Fire Trainer: Kitchen Scenario', channel: 'Vobling', videoId: 'o1GnqWJLr5c' },
+        { title: 'VCFD Kitchen Fire Safety', channel: 'Ventura County Fire Department', videoId: 'rgr7UOYn1S8' },
+        { title: 'Kitchen Grease Fire Safety', channel: 'PBC Fire Rescue', videoId: 'PoGkFxtV9Uw' },
+        { title: 'Kitchen Fire Safety', channel: 'Fire and Rescue NSW', videoId: 'kj6mMtni3H8' },
+        { title: 'Household fire fighting training', channel: 'Industrial Skills', videoId: 'L_WRmhPU1KM' },
+    ],
     lessons: [
       { title: 'Understanding Grease Fires', duration: '5 min' },
       { title: 'Kitchen Fire Suppression Systems', duration: '8 min' },

@@ -243,6 +243,51 @@ export const modules = [
           options: ['Pull', 'Push', 'Press', 'Point'],
           answer: 'Pull',
         },
+        {
+          question: 'What does the "A" in P.A.S.S. stand for?',
+          options: ['Activate', 'Aim', 'Alert', 'Assess'],
+          answer: 'Aim',
+        },
+        {
+            question: 'What does the first "S" in P.A.S.S. stand for?',
+            options: ['Spray', 'Squeeze', 'Shout', 'Stop'],
+            answer: 'Squeeze',
+        },
+        {
+            question: 'What does the second "S" in P.A.S.S. stand for?',
+            options: ['Sweep', 'Side-step', 'Spray', 'Secure'],
+            answer: 'Sweep',
+        },
+        {
+            question: 'Where should you aim the fire extinguisher nozzle?',
+            options: ['At the top of the flames', 'At the middle of the flames', 'At the base of the fire', 'At the smoke'],
+            answer: 'At the base of the fire',
+        },
+        {
+            question: 'What type of fire is a Class A fire?',
+            options: ['Flammable liquids', 'Electrical equipment', 'Combustible metals', 'Ordinary combustibles (wood, paper)'],
+            answer: 'Ordinary combustibles (wood, paper)',
+        },
+        {
+            question: 'Which fire extinguisher class should be used on a fire involving cooking oils in a commercial kitchen?',
+            options: ['Class A', 'Class B', 'Class C', 'Class K'],
+            answer: 'Class K',
+        },
+        {
+            question: 'A fire involving gasoline would be classified as which type of fire?',
+            options: ['Class A', 'Class B', 'Class C', 'Class D'],
+            answer: 'Class B',
+        },
+        {
+            question: 'What is a multi-purpose "ABC" fire extinguisher NOT rated for?',
+            options: ['Wood fires', 'Gasoline fires', 'Electrical fires', 'Combustible metal fires'],
+            answer: 'Combustible metal fires',
+        },
+        {
+            question: 'How should you approach a fire with an extinguisher?',
+            options: ['With your back to an exit', 'Quickly, running towards it', 'From a safe distance, with a clear exit behind you', 'As close as possible'],
+            answer: 'From a safe distance, with a clear exit behind you',
+        },
     ],
   },
 ];

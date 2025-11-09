@@ -88,6 +88,13 @@ export const modules = [
     title: 'Handling Electrical Fires',
     description: 'Learn to identify electrical hazards and respond correctly to electrical fires.',
     icon: Zap,
+    youtubeVideos: [
+        { title: '5 steps to put out an electrical fire', channel: 'FireRescue1', videoId: 'b-kYm1Yiazw' },
+        { title: 'Home Safety Tips : How to Put Out an Electrical Fire', channel: 'homesteady', videoId: 'YUkUJOJDo4c' },
+        { title: 'How to Handle an Electrical Fire at Home', channel: 'OXY TV', videoId: 'ASqKEaY8Ey0' },
+        { title: 'How To Put Out Electrical Fire (from wikiHow)', channel: 'wikiHow', videoId: '2m0ZAdp-FqQ' },
+        { title: 'What Causes Electrical Fires? | Electrical Fire Safety', channel: 'Schneider Electric', videoId: 'kuDfDWUrEus' },
+    ],
     lessons: [
       { title: 'Common Electrical Hazards', content: 'Identifying common electrical hazards is the first step in prevention. This includes overloaded outlets, frayed or damaged cords, improper use of extension cords, and placing combustibles near heat-generating appliances. Regular visual inspections of electrical equipment can prevent many fires before they start.' },
       { title: 'Using a Class C Extinguisher', content: 'Electrical fires require a Class C fire extinguisher. These extinguishers use non-conductive agents like carbon dioxide or dry chemical powders that won\'t create a shock hazard. Never use water (Class A) or other conductive agents on a live electrical fire.' },

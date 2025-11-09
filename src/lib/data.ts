@@ -1,3 +1,4 @@
+
 import { Award, BookOpen, Bot, Flame, Users, Zap } from 'lucide-react';
 import { FireExtinguisherIcon } from '@/components/icons/FireExtinguisherIcon';
 
@@ -159,6 +160,14 @@ export const modules = [
     title: 'Guest Evacuation Procedures',
     description: 'Master the procedures for safely evacuating guests during a fire emergency.',
     icon: Users,
+    youtubeVideos: [
+        { title: 'Fire Safety In Hotels', channel: 'Marsden Fire Safety', videoId: '07r1t1Sz9OI' },
+        { title: 'Hotel Emergency Evacuation [Training Video]', channel: 'MM', videoId: 'TvVU7AJXYzQ' },
+        { title: 'Emergency Evacuation – Know the Plan', channel: 'SafetyVideos.com', videoId: 'm5hRU9b2AZo' },
+        { title: 'TIME hotels releases sign language fire safety video', channel: 'HotelierMiddleEast', videoId: 'V8O_NEcV8Ho' },
+        { title: 'Fire Safety in Hotels', channel: 'Siemens Knowledge Hub', videoId: 'rFu-XHXzBF8' },
+        { title: 'How to Safely Navigate Hotel Fire Exits in Emergencies', channel: 'CERT - Community Emergency Response Team', videoId: '--TI98SMcYI' },
+    ],
     lessons: [
       { title: 'Communicating with Guests', content: 'Clear, calm, and authoritative communication is vital during an evacuation. Use the PA system, go door-to-door, and give concise instructions. Direct guests to the nearest safe exit and assembly point. Avoid causing panic.' },
       { title: 'Assisting Guests with Disabilities', content: 'It is a priority to have a plan for guests who may need extra help, such as the elderly, or those with mobility, hearing, or vision impairments. Staff should be trained on how to assist them, which may involve using evacuation chairs or directing them to areas of refuge until emergency services arrive. Never use elevators during a fire.' },

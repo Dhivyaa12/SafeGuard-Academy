@@ -31,14 +31,54 @@ export const modules = [
     ],
     quiz: [
       {
-        question: 'What is the first step in case of a grease fire?',
-        options: ['Pour water on it', 'Cover with a metal lid', 'Use a fire blanket', 'Fan the flames'],
-        answer: 'Cover with a metal lid',
+        question: 'What is the first step you should take if you see a small grease fire in a pan?',
+        options: ['Pour water on it', 'Turn off the heat source', 'Get a fire extinguisher immediately', 'Fan the flames to blow it out'],
+        answer: 'Turn off the heat source',
       },
       {
-        question: 'How often should kitchen fire suppression systems be inspected?',
-        options: ['Annually', 'Semi-annually', 'Monthly', 'Every 2 years'],
+        question: 'What should you NEVER use to extinguish a grease fire?',
+        options: ['A metal lid', 'Baking soda', 'Water', 'A damp cloth'],
+        answer: 'Water',
+      },
+      {
+        question: 'How do you smother a small pan fire?',
+        options: ['Cover it with a metal lid', 'Use a fan', 'Throw flour on it', 'Let it burn out'],
+        answer: 'Cover it with a metal lid',
+      },
+      {
+        question: 'How often should a commercial kitchen\'s fire suppression system be inspected?',
+        options: ['Every month', 'Every two years', 'Annually', 'Semi-annually'],
         answer: 'Semi-annually',
+      },
+      {
+        question: 'What is a key practice for safe appliance handling to prevent fires?',
+        options: ['Using multiple extension cords', 'Keeping appliances free of grease buildup', 'Leaving appliances on overnight', 'Ignoring frayed cords'],
+        answer: 'Keeping appliances free of grease buildup',
+      },
+      {
+        question: 'What should you do if you discover a piece of kitchen equipment is faulty?',
+        options: ['Try to fix it yourself', 'Keep using it carefully', 'Report it and take it out of service', 'Ask a coworker what to do'],
+        answer: 'Report it and take it out of service',
+      },
+      {
+        question: 'Where are automatic fire suppression systems typically located in a kitchen?',
+        options: ['Under the sink', 'In the range hood', 'On the ceiling', 'Next to the exit'],
+        answer: 'In the range hood',
+      },
+      {
+        question: 'What is the danger of using water on a grease fire?',
+        options: ['It can cause the fire to splash and spread', 'It will create a lot of smoke', 'It won\'t do anything', 'It will damage the pan'],
+        answer: 'It can cause the fire to splash and spread',
+      },
+      {
+        question: 'Which action is crucial at the end of a shift to ensure kitchen safety?',
+        options: ['Leave the fryers on for the next shift', 'Make sure all cooking appliances are turned off', 'Stack oily rags on the counter', 'Clean the floors with a flammable liquid'],
+        answer: 'Make sure all cooking appliances are turned off',
+      },
+      {
+        question: 'What type of fire extinguisher is specifically designed for commercial kitchen grease fires (cooking oils)?',
+        options: ['Class A', 'Class B', 'Class C', 'Class K'],
+        answer: 'Class K',
       },
     ],
   },

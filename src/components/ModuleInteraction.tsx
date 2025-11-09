@@ -50,6 +50,7 @@ type Props = {
 export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }: Props) {
     const [answers, setAnswers] = useState<Record<number, string>>({});
     const [quizResult, setQuizResult] = useState<'passed' | 'failed' | null>(null);
+    const [score, setScore] = useState({ correct: 0, incorrect: 0 });
     const { toast } = useToast();
 
     const handleAnswerChange = (questionIndex: number, value: string) => {
@@ -64,6 +65,9 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }:
             }
         });
 
+        const incorrectAnswers = quiz.length - correctAnswers;
+        setScore({ correct: correctAnswers, incorrect: incorrectAnswers });
+
         if (correctAnswers === quiz.length) {
             setQuizResult('passed');
             toast({
@@ -75,7 +79,7 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }:
             setQuizResult('failed');
             toast({
                 title: "Quiz Failed",
-                description: "Please review the material and try again.",
+                description: `You got ${correctAnswers} out of ${quiz.length} correct. Please review the material and try again.`,
                 variant: "destructive",
             });
         }
@@ -84,8 +88,38 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }:
     const resetQuiz = () => {
         setAnswers({});
         setQuizResult(null);
+        setScore({ correct: 0, incorrect: 0 });
     }
     
+    const ResultDisplay = ({ result }: { result: 'passed' | 'failed' }) => {
+        const isPassed = result === 'passed';
+        const bgColor = isPassed ? 'bg-green-100/50 dark:bg-green-900/20' : 'bg-destructive/10';
+        const borderColor = isPassed ? 'border-green-500/50' : 'border-destructive/50';
+        const iconColor = isPassed ? 'text-green-600' : 'text-destructive';
+        const Icon = isPassed ? CheckCircle : XCircle;
+        const title = isPassed ? "Congratulations! You Passed!" : "Try Again";
+        const description = isPassed ? "You have successfully completed the assessment." : "You did not pass. Please review the lessons and try again.";
+
+        return (
+             <div className={`text-center p-8 ${bgColor} rounded-lg border ${borderColor}`}>
+                <Icon className={`mx-auto h-16 w-16 ${iconColor}`} />
+                <h3 className="text-2xl font-bold mt-4">{title}</h3>
+                <p className="text-muted-foreground mt-2 text-lg">{description}</p>
+                <div className="mt-6 flex justify-center gap-4 text-lg">
+                    <div className="bg-green-200/50 text-green-800 dark:bg-green-800/30 dark:text-green-300 font-semibold px-4 py-2 rounded-md">
+                        Correct: {score.correct}
+                    </div>
+                    <div className="bg-red-200/50 text-red-800 dark:bg-red-800/30 dark:text-red-300 font-semibold px-4 py-2 rounded-md">
+                        Incorrect: {score.incorrect}
+                    </div>
+                </div>
+                {!isPassed && (
+                     <Button onClick={resetQuiz} variant="outline" className="mt-6 text-base px-6 py-3">Try Again</Button>
+                )}
+            </div>
+        );
+    };
+
     return (
         <Tabs defaultValue="lessons" className="w-full">
             <TabsList className="grid w-full grid-cols-3 bg-card p-1 h-auto">
@@ -202,21 +236,7 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }:
                                 ))}
                             </form>
                         )}
-                        {quizResult === 'passed' && (
-                            <div className="text-center p-8 bg-green-100/50 dark:bg-green-900/20 rounded-lg border border-green-500/50">
-                                <CheckCircle className="mx-auto h-16 w-16 text-green-600" />
-                                <h3 className="text-2xl font-bold mt-4">Congratulations! You Passed!</h3>
-                                <p className="text-muted-foreground mt-2 text-lg">You have successfully completed the assessment.</p>
-                            </div>
-                        )}
-                         {quizResult === 'failed' && (
-                            <div className="text-center p-8 bg-destructive/10 rounded-lg border border-destructive/50">
-                                <XCircle className="mx-auto h-16 w-16 text-destructive" />
-                                <h3 className="text-2xl font-bold mt-4">Try Again</h3>
-                                <p className="text-muted-foreground mt-2 text-lg">You did not pass. Please review the lessons and try again.</p>
-                                <Button onClick={resetQuiz} variant="outline" className="mt-6 text-base px-6 py-3">Try Again</Button>
-                            </div>
-                        )}
+                        {quizResult && <ResultDisplay result={quizResult} />}
                     </CardContent>
                     {quizResult === null && (
                         <CardFooter>

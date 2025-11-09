@@ -113,7 +113,7 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }:
         const incorrectAnswers = quiz.length - correctAnswers;
         setScore({ correct: correctAnswers, incorrect: incorrectAnswers });
 
-        if (correctAnswers === quiz.length) {
+        if (correctAnswers >= (quiz.length * 0.8)) {
             setQuizResult('passed');
             toast({
                 title: "Quiz Passed!",
@@ -143,7 +143,7 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }:
         const iconColor = isPassed ? 'text-green-600' : 'text-destructive';
         const Icon = isPassed ? CheckCircle : XCircle;
         const title = isPassed ? "Congratulations! You Passed!" : "Try Again";
-        const description = isPassed ? "You have successfully completed the assessment." : "You did not pass. Please review the lessons and try again.";
+        const description = isPassed ? "You have successfully completed the assessment." : `You got ${score.correct} out of ${quiz.length} correct. You need to score at least 80% to pass. Please review the material and try again.`;
 
         return (
              <div className={`text-center p-8 ${bgColor} rounded-lg border ${borderColor}`}>
@@ -326,6 +326,18 @@ export function ModuleInteraction({ lessons, quiz, moduleTitle, youtubeVideos }:
                 </DialogHeader>
                 <div className="flex-1 relative bg-black">
                     <video ref={videoRef} className="w-full h-full object-cover" autoPlay playsInline muted />
+
+                    {hasCameraPermission && (
+                         <video
+                            src="/fire.mp4"
+                            className="absolute bottom-0 right-0 w-1/2"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        />
+                    )}
+
                     {hasCameraPermission === false && (
                         <div className="absolute inset-0 flex items-center justify-center bg-black/70">
                             <Alert variant="destructive" className="max-w-sm">

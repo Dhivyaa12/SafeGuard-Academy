@@ -165,11 +165,56 @@ export const modules = [
       { title: 'Assembly Point Management', content: 'Once guests are evacuated, they must gather at a designated assembly point a safe distance from the building. Staff should take a head count if possible, keep guests calm, provide information, and prevent them from re-entering the building until it is declared safe by the fire department.' },
     ],
     quiz: [
-        {
-          question: 'Where is the primary assembly point located?',
-          options: ['Hotel Lobby', 'East Parking Lot', 'Rooftop', 'Basement'],
-          answer: 'East Parking Lot',
-        },
+      {
+        question: 'What is the most important aspect of communication during an evacuation?',
+        options: ['Speaking loudly', 'Being clear, calm, and authoritative', 'Using complex terms', 'Waiting for instructions'],
+        answer: 'Being clear, calm, and authoritative',
+      },
+      {
+        question: 'What should you never use during a fire evacuation?',
+        options: ['Stairs', 'Fire exits', 'Elevators', 'Hallways'],
+        answer: 'Elevators',
+      },
+      {
+        question: 'What is a primary responsibility of staff at the assembly point?',
+        options: ['Allowing guests to go back for belongings', 'Taking a head count, if possible', 'Serving refreshments', 'Dismissing everyone immediately'],
+        answer: 'Taking a head count, if possible',
+      },
+      {
+        question: 'How should staff assist guests with mobility issues?',
+        options: ['Tell them to wait for the elevator', 'Leave them in their rooms', 'Use evacuation chairs or guide them to areas of refuge', 'Carry them down the stairs without equipment'],
+        answer: 'Use evacuation chairs or guide them to areas of refuge',
+      },
+      {
+        question: 'When is it safe for guests and staff to re-enter the building?',
+        options: ['When the alarm stops', 'After 10 minutes', 'When a staff member says it\'s okay', 'Only when the fire department gives the all-clear'],
+        answer: 'Only when the fire department gives the all-clear',
+      },
+      {
+        question: 'What is the main goal of an evacuation?',
+        options: ['To save hotel property', 'To get everyone out of the building safely', 'To find the source of the fire', 'To call the media'],
+        answer: 'To get everyone out of the building safely',
+      },
+      {
+        question: 'What does an "area of refuge" provide?',
+        options: ['A place to hide from the fire', 'A temporary safe space for people who cannot use stairs', 'The main assembly point', 'A storage area for fire equipment'],
+        answer: 'A temporary safe space for people who cannot use stairs',
+      },
+      {
+        question: 'If you are going door-to-door to evacuate rooms, and a door is hot, what should you do?',
+        options: ['Open it quickly to check inside', 'Break down the door', 'Do not open it, and report the room number to the fire department', 'Ignore it and move to the next room'],
+        answer: 'Do not open it, and report the room number to the fire department',
+      },
+      {
+        question: 'What should be the tone of your voice when giving instructions?',
+        options: ['Panicked and rushed', 'Quiet and uncertain', 'Calm and authoritative', 'Angry and demanding'],
+        answer: 'Calm and authoritative',
+      },
+      {
+        question: 'Where is the primary assembly point located?',
+        options: ['Hotel Lobby', 'East Parking Lot', 'Rooftop', 'Basement'],
+        answer: 'East Parking Lot',
+      },
     ],
   },
   {

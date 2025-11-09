@@ -232,6 +232,12 @@ export const modules = [
     title: 'Using Fire Extinguishers',
     description: 'A practical guide to the different types of fire extinguishers and their use.',
     icon: FireExtinguisherIcon,
+    youtubeVideos: [
+        { title: 'How to Use a Fire Extinguisher Using the PASS Method', channel: 'CQ Fire & Safety', videoId: 'PQV71INDaqY' },
+        { title: 'How to Use a Fire Extinguisher Using the P-A-S-S Method', channel: 'Ally Safety', videoId: 'OhmiECKjYx8' },
+        { title: 'How to Use a Fire Extinguisher', channel: 'WebstaurantStore', videoId: 'GVBamXXVD30' },
+        { title: 'How to use a Fire Extinguisher with Abbotsford Firefighters', channel: 'The City of Abbotsford', videoId: 'TEpGzvsw8qk' },
+    ],
     lessons: [
       { title: 'Types of Extinguishers (A, B, C, D, K)', content: 'Class A is for combustibles like wood/paper. Class B for flammable liquids like grease/gasoline. Class C for electrical fires. Class D for combustible metals. Class K for commercial kitchen cooking oils. Most hotels use multi-purpose ABC extinguishers.' },
       { title: 'The P.A.S.S. Technique', content: 'P.A.S.S. is an acronym for using an extinguisher: PULL the pin. AIM the nozzle at the base of the fire. SQUEEZE the lever slowly and evenly. SWEEP the nozzle from side-to-side.' },
